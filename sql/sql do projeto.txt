@@ -1,0 +1,21 @@
+create table fabricantes(
+	idFabricantes int(11) not null auto_increment,
+	nome text(20),
+    primary key (idFabricantes)
+)
+
+
+create table etiquetas(
+	idEtiquetas int(11) not null auto_increment,
+	nome text(20),
+	altura int(2),
+	largura int(2),
+	tipoPapel text(20),
+	idFabricantes int(11)not null,
+	primary key(idEtiquetas),
+	FOREIGN KEY (idFabricantes) references fabricantes(idFabricantes)
+)ENGINE = INNODB;
+
+
+insert into etiquetas(idEtiquetas, nome,altura,largura,tipoPapel, idFabricantes)
+values (3, 'teste1', '2','3','a4','nome');

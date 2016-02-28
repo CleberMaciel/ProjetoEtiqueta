@@ -1,0 +1,6 @@
+CREATE TABLE `users` (
+ `idUsers` int(11) NOT NULL AUTO_INCREMENT,
+ `nome` text NOT NULL,
+ `password` text NOT NULL,
+ PRIMARY KEY (`idUsers`)
+) 
