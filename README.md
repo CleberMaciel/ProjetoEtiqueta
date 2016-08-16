@@ -1,2 +1,2 @@
 # ProjetoEtiqueta
-projeto de internet I
+Projeto de busca de etiquetas.
