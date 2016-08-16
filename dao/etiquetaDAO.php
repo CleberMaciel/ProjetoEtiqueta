@@ -81,6 +81,7 @@ class EtiquetaDAO {
                     . "<th>Largura</th>"
                     . "<th>Tipo Papel</th>"
                     . "<th>Fabricante</th>"
+                    . "<th>Deletar</th>"
                     . "</tr>";
             while ($sql->fetch()) {
                 $dados .="<tr>"
@@ -89,6 +90,7 @@ class EtiquetaDAO {
                         . "<td>" . $largura . " cm" . "</td>"
                         . "<td>" . $tipoPapel . "</td>"
                         . "<td>" . $fabricante . "</td>"
+                        . "<td>" . "<a href=excluir.php?id= ".$id.">excluir</a></td>"
                         . "</tr>";
             }
 
