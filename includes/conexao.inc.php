@@ -1,10 +1,10 @@
 <?php
 
     // informações relativas a conexão
-    $host = "mysql.hostinger.com.br";
-    $usuario = "u832315909_root";  
-    $senha = "cleber91"; // mudar a senha para a do seu banco! :) 
-    $banco = "u832315909_eti";    // mudar o nome para o do seu banco! :)
+    $host = "localhost";
+    $usuario = "root";  
+    $senha = ""; // mudar a senha para a do seu banco! :) 
+    $banco = "eti";    // mudar o nome para o do seu banco! :)
     
     // incia a conexão usando o construtor da classe mysqli passando os parâmetros de conexão
     $con = new mysqli($host, $usuario, $senha, $banco);
