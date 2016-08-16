@@ -37,7 +37,7 @@
                         </form>
                     </fieldset>
                 </div>
-               <!--  <fieldset id="etiquetaCampo">
+                <fieldset id="etiquetaCampo">
                     <h3>
                         Cadastro de Etiquetas
                     </h3>
@@ -197,7 +197,7 @@
                         <br>
                         <a href="../index.php" class="jujuba">Voltar para página inicial</a>
                     </form>
-                </fieldset> -->
+                </fieldset>
             </div>
         </body>
     

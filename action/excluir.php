@@ -6,7 +6,7 @@
 	include "../dao/etiquetaDAO.php";
 
 
-	$id = $_POST['idEtiquetas'];
+	$id = $__GET['idEtiquetas'];
 	
 
 

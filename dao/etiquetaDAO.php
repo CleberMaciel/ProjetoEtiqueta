@@ -81,6 +81,79 @@ class EtiquetaDAO {
                     . "<th>Largura</th>"
                     . "<th>Tipo Papel</th>"
                     . "<th>Fabricante</th>"
+                    . "</tr>";
+            while ($sql->fetch()) {
+                $dados .="<tr>"
+                        . "<td>" . $nome . "  </td>"
+                        . "<td>" . $altura . " cm" . "</td>"
+                        . "<td>" . $largura . " cm" . "</td>"
+                        . "<td>" . $tipoPapel . "</td>"
+                        . "<td>" . $fabricante . "</td>"
+                        . "</tr>";
+            }
+
+            $dados.="</table>";
+            echo $dados;
+        } catch (Exception $e) {
+            echo "ERRO: " . $e->getMessage();
+        }
+    }
+
+function deletar($id = ""){
+     global $con;
+        try {
+            
+            $id = $_GET['idEtiquetas'];    
+                $sql = $con->prepare("DELETE from etiquetas where idEtiquetas = ?");
+                $sql->bind_param("i", $id);
+            
+                if ($sql->execute()) {
+                    ?>
+                    <html>
+                        <meta charset="UTF-8">
+                        <style type="text/css">@import "../css/estilo.css";</style>
+                        <body>
+                            <br><br>
+                            <h3><img src="../img/ico/ok.ico"> Etiqueta cadastrado com sucesso no sistema.</h3>
+                            <h3>Página será redirecionado automaticamente dentro de 5 segundos.</h3>
+                            <META HTTP-EQUIV="REFRESH" CONTENT="3;URL=../index.php"> 
+                        </body>
+                    </html>
+
+                    <?php
+                }
+
+ } catch (Exception $e) {
+            echo "ERRO: " . $e->getMessage();
+        }
+}
+
+
+function excluir() {
+
+        global $con;
+        try {
+            if ($id == "") {
+                $sql = $con->prepare("SELECT etiquetas.idEtiquetas, etiquetas.nome, etiquetas.altura, etiquetas.largura, etiquetas.tipoPapel, fabricantes.nome 
+                                      from etiquetas join fabricantes
+                                      on fabricantes.idFabricantes = etiquetas.idFabricantes ");
+            } else {
+                $sql = $con->prepare("SELECT etiquetas.idEtiquetas, etiquetas.nome, etiquetas.altura, etiquetas.largura, etiquetas.tipoPapel, fabricantes.nome 
+                                      from etiquetas join fabricantes 
+                                      on fabricantes.idFabricantes = etiquetas.idFabricantes ");
+
+                $sql->bind_param('i', $id);
+            }
+            $sql->execute();
+
+            $sql->bind_result($id, $nome, $altura, $largura, $tipoPapel, $fabricante);
+
+            $dados = "<table><tr>"
+                    . "<th>Nome/Modelo</th>"
+                    . "<th>Altura</th>"
+                    . "<th>Largura</th>"
+                    . "<th>Tipo Papel</th>"
+                    . "<th>Fabricante</th>"
                     . "<th>Deletar</th>"
                     . "</tr>";
             while ($sql->fetch()) {
@@ -90,7 +163,7 @@ class EtiquetaDAO {
                         . "<td>" . $largura . " cm" . "</td>"
                         . "<td>" . $tipoPapel . "</td>"
                         . "<td>" . $fabricante . "</td>"
-                        . "<td>" . "<a href=../action/excluir.php?idEtiquetas=1>excluir</a></td>"
+                        . "<td>" . "<a href=../action/excluir.php?idEtiquetas=".$id.">excluir</a></td>"
                         . "</tr>";
             }
 
@@ -320,29 +393,6 @@ class EtiquetaDAO {
     }
 
 //fim funcao
-
-
-    public function deletar($id){
-     global $con;
-
-        try {
-
-            $id  = $_GET["idEtiquetas"];
-
-
-            $sql = $con->prepare("DELETE from etiquetas WHERE etiquetas.idEtiquetas = ? ");
-
-
-            $sql->bind_param('i', $id);
-
-            $sql->execute();
-
-        } catch (Exception $e) {
-            echo "Erro: " . $e->getMessage();
-        }
-    }
-
-
 }
 //fim da classe
 ?>
