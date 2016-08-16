@@ -61,11 +61,11 @@ class EtiquetaDAO {
         global $con;
         try {
             if ($id == "") {
-                $sql = $con->prepare("SELECT etiquetas.nome, etiquetas.altura, etiquetas.largura, etiquetas.tipoPapel, fabricantes.nome 
+                $sql = $con->prepare("SELECT etiquetas.idEtiquetas, etiquetas.nome, etiquetas.altura, etiquetas.largura, etiquetas.tipoPapel, fabricantes.nome 
                                       from etiquetas join fabricantes
                                       on fabricantes.idFabricantes = etiquetas.idFabricantes ");
             } else {
-                $sql = $con->prepare("SELECT etiquetas.nome, etiquetas.altura, etiquetas.largura, etiquetas.tipoPapel, fabricantes.nome 
+                $sql = $con->prepare("SELECT etiquetas.idEtiquetas, etiquetas.nome, etiquetas.altura, etiquetas.largura, etiquetas.tipoPapel, fabricantes.nome 
                                       from etiquetas join fabricantes 
                                       on fabricantes.idFabricantes = etiquetas.idFabricantes ");
 
@@ -73,7 +73,7 @@ class EtiquetaDAO {
             }
             $sql->execute();
 
-            $sql->bind_result($nome, $altura, $largura, $tipoPapel, $fabricante);
+            $sql->bind_result($id, $nome, $altura, $largura, $tipoPapel, $fabricante);
 
             $dados = "<table><tr>"
                     . "<th>Nome/Modelo</th>"
@@ -90,7 +90,7 @@ class EtiquetaDAO {
                         . "<td>" . $largura . " cm" . "</td>"
                         . "<td>" . $tipoPapel . "</td>"
                         . "<td>" . $fabricante . "</td>"
-                        . "<td>" . "<a href=excluir.php?id= ".$id.">excluir</a></td>"
+                        . "<td>" . "<a href=../action/excluir.php?idEtiquetas=1>excluir</a></td>"
                         . "</tr>";
             }
 
@@ -320,7 +320,29 @@ class EtiquetaDAO {
     }
 
 //fim funcao
-}
 
+
+    public function deletar($id){
+     global $con;
+
+        try {
+
+            $id  = $_GET["idEtiquetas"];
+
+
+            $sql = $con->prepare("DELETE from etiquetas WHERE etiquetas.idEtiquetas = ? ");
+
+
+            $sql->bind_param('i', $id);
+
+            $sql->execute();
+
+        } catch (Exception $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+
+
+}
 //fim da classe
 ?>
