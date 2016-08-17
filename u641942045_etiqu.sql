@@ -63,8 +63,7 @@ INSERT INTO `etiquetas` (`idEtiquetas`, `nome`, `altura`, `largura`, `tipoPapel`
 (18, 'Etiqueta18', '4', '6', 'A4', 3),
 (19, 'Etiqueta19', '4', '6', 'A3', 1),
 (20, 'Etiqueta20', '10', '10', 'A4', 1),
-(21, 'Etiqueta21', '10', '10', 'A4', 1),
-(22, 'RafaECleber', '12', '12', 'A4', 16);
+(21, 'Etiqueta21', '10', '10', 'A4', 1);
 
 -- --------------------------------------------------------
 
@@ -97,8 +96,7 @@ INSERT INTO `fabricantes` (`idFabricantes`, `nome`) VALUES
 (12, 'Fabricante12'),
 (13, 'Fabricante13'),
 (14, 'Fabricante14'),
-(15, 'Fabricante15'),
-(16, 'CasaComigo');
+(15, 'Fabricante15');
 
 -- --------------------------------------------------------
 
@@ -122,8 +120,6 @@ INSERT INTO `users` (`idUsers`, `nome`, `password`) VALUES
 (6, 'cleber-maciel', '1234'),
 (1, 'adm', 'adm'),
 (8, 'usuario-usuario', '1234'),
-(9, 'rafala-username', '191196'),
-(10, 'rafaela-depre', 'adm'),
 (11, 'fsdfsdf-fgdsfdsf', '1234');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
