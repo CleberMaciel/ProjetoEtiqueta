@@ -1,4 +1,4 @@
-<?php 
+    <?php 
 class Etiqueta{
 	private $id;
 	private $nome;

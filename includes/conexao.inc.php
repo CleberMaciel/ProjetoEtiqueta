@@ -3,7 +3,7 @@
     // informações relativas a conexão
     $host = "localhost";
     $usuario = "root";  
-    $senha = "cleber91"; // mudar a senha para a do seu banco! :) 
+    $senha = ""; // mudar a senha para a do seu banco! :) 
     $banco = "eti";    // mudar o nome para o do seu banco! :)
     
     // incia a conexão usando o construtor da classe mysqli passando os parâmetros de conexão

@@ -40,7 +40,7 @@ session_start();
          </select>
          <br><br>
 
-         <input name="acoes" id="acoes"  type="submit" class="botao_pes" value="Pesquisar" title="Irá pesquisar todos os tipos de etiquetas que você selecionou acima.">
+         <input name="acoes" id="acoes"  type="submit" class="mdl-button mdl-js-button mdl-button--raised" value="Pesquisar" title="Irá pesquisar todos os tipos de etiquetas que você selecionou acima.">
 
      </form>
  </div>       
